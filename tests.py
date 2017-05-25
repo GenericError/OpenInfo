@@ -61,3 +61,6 @@ class BaseData(unittest.TestCase):
         test_data.get_data()
         test_data.set_data(even_more_data)
         test_data.get_data()
+
+if __name__ == '__main__':
+    unittest.main()
