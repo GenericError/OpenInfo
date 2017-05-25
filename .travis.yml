@@ -1,0 +1,17 @@
+os:
+  - linux
+install: "pip install codecov coverage"
+language: python
+python:
+  - "3.3"
+  - "3.4"
+  - "3.5"
+  - "3.6"
+env: COLUMNS=80
+script:
+  - coverage run tests.py
+git:
+  depth: 10
+after_success:
+  - "codecov"
+  - "coverage report"
