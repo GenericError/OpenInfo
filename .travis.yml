@@ -1,0 +1,20 @@
+os:
+  - linux
+install: "pip install codecov"
+language: python
+python:
+  - "3.3"
+  - "3.4"
+  - "3.5"
+  - "3.5-dev"
+  - "3.6"
+  - "3.6-dev"
+  - "3.7-dev"
+  - "nightly"
+env: COLUMNS=80
+script:
+  - coverage run tests.py
+git:
+  depth: 10
+after_success:
+  - codecov
