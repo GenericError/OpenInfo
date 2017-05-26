@@ -139,7 +139,7 @@ class TestBooleanData(unittest.TestCase):
 
 
 class TestFloatData(unittest.TestCase):
-    """ Testing data.floatData """
+    """ Testing data.FloatData """
 
     def test_no_data(self):
         """ Testing behaviour when no data is given """
@@ -181,6 +181,29 @@ class TestFloatData(unittest.TestCase):
         self.assertEqual(test_data.get_data(), 1.23)
         test_data.set_data("foobar")
         self.assertEqual(test_data.get_data(), 1.23)
+
+
+class TestStringData(unittest.TestCase):
+    """ Testing data.StringData """
+
+    def test_no_data(self):
+        """ Testing behaviour when no data is given """
+        test_data = data.StringData()
+        self.assertEqual(test_data.get_data(), "")
+
+    def test_integer_data(self):
+        """ Testing behaviour when an string is given """
+        test_data = data.StringData("foo")
+        self.assertEqual(test_data.get_data(), "foo")
+        test_data.set_data("bar")
+        self.assertEqual(test_data.get_data(), "bar")
+
+    def test_float_data(self):
+        """ Testing behaviour when a integer is given """
+        test_data = data.StringData(123)
+        self.assertEqual(test_data.get_data(), "123")
+        test_data.set_data(456)
+        self.assertEqual(test_data.get_data(), "456")
 
 if __name__ == '__main__':
     unittest.main()
