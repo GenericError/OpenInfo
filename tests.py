@@ -139,7 +139,7 @@ class TestBooleanData(unittest.TestCase):
 
 
 class TestFloatData(unittest.TestCase):
-    """ Testing data.floatData """
+    """ Testing data.FloatData """
 
     def test_no_data(self):
         """ Testing behaviour when no data is given """
@@ -184,7 +184,7 @@ class TestFloatData(unittest.TestCase):
 
 
 class TestStringData(unittest.TestCase):
-    """ Testing data.floatData """
+    """ Testing data.StringData """
 
     def test_no_data(self):
         """ Testing behaviour when no data is given """
@@ -204,6 +204,13 @@ class TestStringData(unittest.TestCase):
         self.assertEqual(test_data.get_data(), "123")
         test_data.set_data(456)
         self.assertEqual(test_data.get_data(), "456")
+
+    def test_list_data(self):
+        """ Testing the behaviour when a list is given """
+        test_data = data.StringData(['foo', 'bar'])
+        self.assertEqual(test_data.get_data(), "")
+        test_data.set_data(['123', '456'])
+        self.assertEqual(test_data.get_data(), "")
 
 if __name__ == '__main__':
     unittest.main()
