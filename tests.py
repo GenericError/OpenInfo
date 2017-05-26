@@ -205,12 +205,5 @@ class TestStringData(unittest.TestCase):
         test_data.set_data(456)
         self.assertEqual(test_data.get_data(), "456")
 
-    def test_list_data(self):
-        """ Testing the behaviour when a list is given """
-        test_data = data.StringData(['foo', 'bar'])
-        self.assertEqual(test_data.get_data(), "")
-        test_data.set_data(['123', '456'])
-        self.assertEqual(test_data.get_data(), "")
-
 if __name__ == '__main__':
     unittest.main()

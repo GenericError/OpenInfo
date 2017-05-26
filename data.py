@@ -88,17 +88,11 @@ class StringData(object):
 
     def __init__(self, data=""):
         """ Initialise the data """
-        try:
-            self._data = str(data)
-        except ValueError:
-            self._data = ""
+        self._data = str(data)
 
     def set_data(self, new_data=""):
         """ Modifies the data """
-        try:
-            self._data = str(new_data)
-        except ValueError:
-            pass
+        self._data = str(new_data)
 
     def get_data(self):
         """ Returns the data """
