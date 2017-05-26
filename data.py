@@ -81,3 +81,25 @@ class FloatData(object):
     def get_data(self):
         """ Returns the data """
         return self._data
+
+
+class StringData(object):
+    """ Data that can only be a string """
+
+    def __init__(self, data=""):
+        """ Initialise the data """
+        try:
+            self._data = str(data)
+        except ValueError:
+            self._data = ""
+
+    def set_data(self, new_data=""):
+        """ Modifies the data """
+        try:
+            self._data = str(new_data)
+        except ValueError:
+            pass
+
+    def get_data(self):
+        """ Returns the data """
+        return self._data
