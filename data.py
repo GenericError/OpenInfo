@@ -38,6 +38,7 @@ class IntegerData(object):
         """ Returns the data """
         return self._data
 
+
 class BooleanData(object):
     """ Data that can only be a boolean """
 
@@ -54,6 +55,28 @@ class BooleanData(object):
             self._data = True
         else:
             self._data = False
+
+    def get_data(self):
+        """ Returns the data """
+        return self._data
+
+
+class FloatData(object):
+    """ Data that can only be a float """
+
+    def __init__(self, data=0):
+        """ Initialise the data """
+        try:
+            self._data = float(data)
+        except ValueError:
+            self._data = 0
+
+    def set_data(self, new_data=0):
+        """ Modifies the data """
+        try:
+            self._data = float(new_data)
+        except ValueError:
+            pass
 
     def get_data(self):
         """ Returns the data """
