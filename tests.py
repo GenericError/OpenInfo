@@ -137,5 +137,50 @@ class TestBooleanData(unittest.TestCase):
         test_data.set_data(False)
         self.assertEqual(test_data.get_data(), False)
 
+
+class TestFloatData(unittest.TestCase):
+    """ Testing data.floatData """
+
+    def test_no_data(self):
+        """ Testing behaviour when no data is given """
+        test_data = data.FloatData()
+        self.assertEqual(test_data.get_data(), 0)
+
+    def test_integer_data(self):
+        """ Testing behaviour when an integer is given """
+        test_data = data.FloatData(123)
+        self.assertEqual(test_data.get_data(), 123.0)
+        test_data.set_data(456)
+        self.assertEqual(test_data.get_data(), 456.0)
+
+    def test_float_data(self):
+        """ Testing behaviour when a float is given """
+        test_data = data.FloatData(1.23)
+        self.assertEqual(test_data.get_data(), 1.23)
+        test_data.set_data(4.56)
+        self.assertEqual(test_data.get_data(), 4.56)
+
+    def test_non_integer_string_data(self):
+        """ Testing beaviour when a string of non-integers is given """
+        test_data = data.FloatData("foo")
+        self.assertEqual(test_data.get_data(), 0)
+        test_data.set_data("bar")
+        self.assertEqual(test_data.get_data(), 0)
+
+    def test_integer_string_data(self):
+        """ Testing behaviour when a string of integers is given """
+        test_data = data.FloatData("1.23")
+        self.assertEqual(test_data.get_data(), 1.23)
+        test_data.set_data("4.56")
+        self.assertEqual(test_data.get_data(), 4.56)
+
+    def test_no_override(self):
+        """ Testing that providing incompatible data
+        will not change prexisting data """
+        test_data = data.FloatData(1.23)
+        self.assertEqual(test_data.get_data(), 1.23)
+        test_data.set_data("foobar")
+        self.assertEqual(test_data.get_data(), 1.23)
+
 if __name__ == '__main__':
     unittest.main()
