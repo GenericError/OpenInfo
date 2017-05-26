@@ -2,7 +2,7 @@ import unittest
 import data
 
 class TestBaseData(unittest.TestCase):
-    """ Testing data.datamodels.Data """
+    """ Testing data.Data """
 
     def test_no_data(self):
         """ Testing None """
@@ -63,7 +63,7 @@ class TestBaseData(unittest.TestCase):
         test_data.get_data()
 
 class TestIntegerData(unittest.TestCase):
-    """ Testing data.datamodels.IntegerData """
+    """ Testing data.IntegerData """
 
     def test_no_data(self):
         """ Testing behaviour when no data is given """
@@ -105,6 +105,25 @@ class TestIntegerData(unittest.TestCase):
         self.assertEqual(test_data.get_data(), 123)
         test_data.set_data("foobar")
         self.assertEqual(test_data.get_data(), 123)
+
+
+class TestBooleanData(unittest.TestCase):
+    """ Testing data.BooleanData """
+
+    def test_no_data(self):
+        """ Testing behaviour when no data is given """
+        test_data = data.BooleanData()
+        self.assertEqual(test_data.get_data(), False)
+
+    def test_integer_data(self):
+        """ Testing behaviour when an integer is given """
+        test_data = data.BooleanData(1)
+        self.assertEqual(test_data.get_data(), True)
+
+    def test_true_data(self):
+        """ Testing behaviour when True given """
+        test_data = data.BooleanData(True)
+        self.assertEqual(test_data.get_data(), True)
 
 if __name__ == '__main__':
     unittest.main()

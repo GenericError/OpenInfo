@@ -37,3 +37,24 @@ class IntegerData(object):
     def get_data(self):
         """ Returns the data """
         return self._data
+
+class BooleanData(object):
+    """ Data that can only be a boolean """
+
+    def __init__(self, data=False):
+        """ Initialise the data """
+        if data:
+            self._data = True
+        else:
+            self._data = False
+
+    def set_data(self, new_data=0):
+        """ Modifies the data """
+        if new_data:
+            self._data = True
+        else:
+            self._data = False
+
+    def get_data(self):
+        """ Returns the data """
+        return self._data
