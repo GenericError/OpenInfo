@@ -125,5 +125,17 @@ class TestBooleanData(unittest.TestCase):
         test_data = data.BooleanData(True)
         self.assertEqual(test_data.get_data(), True)
 
+    def test_set_true_data(self):
+        """ Testing behaviour when the data is changed to True """
+        test_data = data.BooleanData(False)
+        test_data.set_data(True)
+        self.assertEqual(test_data.get_data(), True)
+
+    def test_set_false_data(self):
+        """ Testing behaviour when the data is changed to False """
+        test_data = data.BooleanData(True)
+        test_data.set_data(False)
+        self.assertEqual(test_data.get_data(), False)
+
 if __name__ == '__main__':
     unittest.main()
