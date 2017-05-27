@@ -1,2 +1,2 @@
 # OpenInfo
-OpenInfo, the open source, worldwide, information database
+OpenInfo, the source code behind a soon-to-be public databse
