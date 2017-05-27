@@ -17,11 +17,12 @@ class Data(object):
         self._data = new_data
 
 
-class IntegerData(object):
+class IntegerData(Data):
     """ Data that can only be an integer """
 
     def __init__(self, data=0):
         """ Initialise the data """
+        Data.__init__(self)
         try:
             self._data = int(data)
         except ValueError:
@@ -34,16 +35,13 @@ class IntegerData(object):
         except ValueError:
             pass
 
-    def get_data(self):
-        """ Returns the data """
-        return self._data
 
-
-class BooleanData(object):
+class BooleanData(Data):
     """ Data that can only be a boolean """
 
     def __init__(self, data=False):
         """ Initialise the data """
+        Data.__init__(self)
         if data:
             self._data = True
         else:
@@ -56,16 +54,13 @@ class BooleanData(object):
         else:
             self._data = False
 
-    def get_data(self):
-        """ Returns the data """
-        return self._data
 
-
-class FloatData(object):
+class FloatData(Data):
     """ Data that can only be a float """
 
     def __init__(self, data=0):
         """ Initialise the data """
+        Data.__init__(self)
         try:
             self._data = float(data)
         except ValueError:
@@ -78,22 +73,15 @@ class FloatData(object):
         except ValueError:
             pass
 
-    def get_data(self):
-        """ Returns the data """
-        return self._data
 
-
-class StringData(object):
+class StringData(Data):
     """ Data that can only be a string """
 
     def __init__(self, data=""):
         """ Initialise the data """
+        Data.__init__(self)
         self._data = str(data)
 
     def set_data(self, new_data=""):
         """ Modifies the data """
         self._data = str(new_data)
-
-    def get_data(self):
-        """ Returns the data """
-        return self._data
