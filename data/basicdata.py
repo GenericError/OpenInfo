@@ -1,4 +1,4 @@
-""" The baseclass for all data """
+""" Basic data types """
 
 
 class Data(object):
@@ -6,7 +6,7 @@ class Data(object):
 
     def __init__(self, data=None):
         """ Initialise the data """
-        self._data = data
+        self._data = self.set_data(data)
 
     def get_data(self):
         """ Returns the data """
@@ -23,10 +23,7 @@ class IntegerData(Data):
     def __init__(self, data=0):
         """ Initialise the data """
         Data.__init__(self)
-        try:
-            self._data = int(data)
-        except ValueError:
-            self._data = 0
+        self._data = self.set_data(data)
 
     def set_data(self, new_data=0):
         """ Modifies the data """
@@ -42,17 +39,11 @@ class BooleanData(Data):
     def __init__(self, data=False):
         """ Initialise the data """
         Data.__init__(self)
-        if data:
-            self._data = True
-        else:
-            self._data = False
+        self._data = self.set_data(data)
 
-    def set_data(self, new_data=0):
+    def set_data(self, new_data=False):
         """ Modifies the data """
-        if new_data:
-            self._data = True
-        else:
-            self._data = False
+        self._data = bool(new_data)
 
 
 class FloatData(Data):
@@ -61,10 +52,7 @@ class FloatData(Data):
     def __init__(self, data=0):
         """ Initialise the data """
         Data.__init__(self)
-        try:
-            self._data = float(data)
-        except ValueError:
-            self._data = 0
+        self._data = self.set_data(data)
 
     def set_data(self, new_data=0):
         """ Modifies the data """
@@ -80,7 +68,7 @@ class StringData(Data):
     def __init__(self, data=""):
         """ Initialise the data """
         Data.__init__(self)
-        self._data = str(data)
+        self._data = self.set_data(data)
 
     def set_data(self, new_data=""):
         """ Modifies the data """
